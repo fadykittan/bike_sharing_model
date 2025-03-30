@@ -1,5 +1,6 @@
 import config
 from extract.extract_file import ExtractFile
+from load.load_result_file import LoadResultFile
 from transform.transform_model_casual import TransformModelCasual
 from transform.transform_model_registered import TransformModelRegistered
 from transform.transform_processing import TransformProcessing
@@ -16,16 +17,21 @@ def main():
 
     # Predict
     model_casual: TransformModelCasual = TransformModelCasual(config)
-    result = model_casual.predict(dataset)
+    result_casual = model_casual.predict(dataset)
 
     print("Casual Model Result:=>")
-    print(result)
+    print(result_casual)
 
     model_registered: TransformModelRegistered = TransformModelRegistered(config)
-    result = model_registered.predict(dataset)
+    result_registered = model_registered.predict(dataset)
 
     print("Registered Model Result:=>")
-    print(result)
+    print(result_registered)
+
+    # Load Result
+    load_file: LoadResultFile = LoadResultFile(config)
+    load_file.save(result_casual, config.OUTPUT_FILE_NAME_CASUAL)
+    load_file.save(result_registered, config.OUTPUT_FILE_NAME_REGISTERED)
 
 if __name__ == '__main__':
     main()
