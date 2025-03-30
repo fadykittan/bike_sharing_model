@@ -1,7 +1,7 @@
 
 
 # Load Data
-DATA_PATH = 'data/bike sharing train.csv'
+DATA_PATH = 'data/input/bike sharing train.csv'
 
 # Model Path
 MODEL_CASUAL_PATH = 'models/model_casual.pkl'

@@ -1,0 +1,16 @@
+.DS_Store
+.gitignore
+
+.idea/
+
+.git/
+
+.venv/
+
+__pycache__/
+
+
+data/input/
+
+data/output/
+
